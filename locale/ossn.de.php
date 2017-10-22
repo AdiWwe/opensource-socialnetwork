@@ -17,9 +17,9 @@ $de = array(
     'photos:ossn' => 'Fotos',
     'admin:view:site' => 'Seiten-Ansicht',
 
-    'home:top:heading' => "Willkommen bei %s!<br>Egal, ob Du neue Freunde oder alte Bekannte suchst: Hier bist Du richtig.",
+    'home:top:heading' => "Willkommen bei %s!<br>Wenn du ein flexibles Social-Media-Netz suchst, dass kein Schindluder mit deinen Daten treibt: Hier bist Du richtig.",
     'create:account' => 'Mitmachen!',
-    'its:free' => 'es ist umsonst und kostet nix.',
+    'its:free' => 'Es ist umsonst und kostet nix.',
 
     'register:ok:message' => "Dein Benutzer-Konto wurde nun eingerichtet, und Du hast eine Aktivierungs-Email erhalten. Sieh in Deinem Spam-Ordner nach, wenn Du die Nachricht im Posteingang nicht findest.",
 

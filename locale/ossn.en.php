@@ -17,7 +17,7 @@ $en = array(
 	'photos:ossn' => 'Photos',
 	'admin:view:site' => 'View Site',
 	
-	'home:top:heading' => "Welcome to %s! Join now to make new friends, create groups, add photos, and much more.",
+	'home:top:heading' => "Welcome to %s!</br>If you are looking for a flexible social media network that cares about your data: Here you are!",
 	'create:account' => 'Create an account',
 	'its:free' => "It's free and always will be.",
 	
