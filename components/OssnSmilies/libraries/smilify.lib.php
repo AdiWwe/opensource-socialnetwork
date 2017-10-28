@@ -45,7 +45,7 @@ function smilify($text) {
             "<img class='ossn-smiley-item' src='{$icon}ossnchat-cry.gif' />"
     );
 
-    return str_replace($ascii_pattern, $smiley_icon, $text);
+    return trim(str_replace($ascii_pattern, $smiley_icon, ' ' . $text . ' '));
 }
 
 
