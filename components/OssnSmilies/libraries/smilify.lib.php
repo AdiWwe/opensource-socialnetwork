@@ -3,25 +3,25 @@
  * Version:     20150212_0001
  */
 function smilify($text) {
-
+    // only smilify patterns if surrounded by blanks
     $ascii_pattern = array(
-            ':(',
-            ':)',
-            '=D',
-            ';)',
-            ':p',
-            '8|',
-            'o.O',
-            ':O',
-            ':*',
-            'a:',
-            ':h:',
-            '3:|',
-            'u:',
-            ':v',
-            'g:',
-            '8)',
-            'c:'
+            ' :( ',
+            ' :) ',
+            ' =D ',
+            ' ;) ',
+            ' :p ',
+            ' 8| ',
+            ' o.O ',
+            ' :O ',
+            ' :* ',
+            ' a: ',
+            ' :h: ',
+            ' 3:| ',
+            ' u: ',
+            ' :v ',
+            ' g: ',
+            ' 8) ',
+            ' c: '
     );
     
     $icon = ossn_site_url() . 'components/OssnChat/images/emoticons/';
