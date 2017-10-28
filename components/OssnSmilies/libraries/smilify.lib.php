@@ -4,6 +4,8 @@
  */
 function smilify($text) {
     // only smilify patterns if surrounded by blanks
+    // text is expanded with blanks to support emojis 
+    // at beginning or end of text
     $ascii_pattern = array(
             ' :( ',
             ' :) ',
