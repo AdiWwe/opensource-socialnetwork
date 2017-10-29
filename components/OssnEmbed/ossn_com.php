@@ -51,10 +51,10 @@ function ossn_embed_wall_template_item($hook, $type, $return){
 	
 	$return['text'] = linkify($return['text']);
 	if(preg_match_all($regex, $return['text'], $matches, PREG_SET_ORDER)){
-	foreach($matches as $match){
+	   foreach($matches as $match){
 			foreach ($patterns as $pattern){
 				if (preg_match($pattern, $match[2]) > 0){
-					$return['text'] = str_replace($match[0], ossn_embed_create_embed_object($match[2], uniqid('videos_embed_'), 500), $return['text']);
+				    $return['text'] = str_replace($match[0], ossn_embed_create_embed_object($match[2], uniqid('videos_embed_'), 500), $return['text']);
 				}				
 			}
 		}

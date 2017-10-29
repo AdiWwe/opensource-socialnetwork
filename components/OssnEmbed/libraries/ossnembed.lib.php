@@ -47,30 +47,31 @@ function ossn_embed_create_embed_object($url, $guid, $videowidth=0) {
 	if (!isset($url)) {
 		return false;
 	}
+	$preserved_url = linkify($url);
 	if (strpos($url, 'youtube.com') != false) {
 		//m.youtube.com not being parsed by embed component #1132
 		$url = str_replace('m.youtube.com', 'www.youtube.com', $url);
- 		return ossn_embed_youtube_handler($url, $guid, $videowidth);
+		return $preserved_url . ossn_embed_youtube_handler($url, $guid, $videowidth);
 	} else if(strpos($url, 'm.youtube.com') != false) {
-		return ossn_embed_youtube_handler($url, $guid, $videowidth);		
+	    return $preserved_url . ossn_embed_youtube_handler($url, $guid, $videowidth);		
 	} else if (strpos($url, 'youtu.be') != false) {
-		return ossn_embed_youtube_shortener_parse_url($url, $guid, $videowidth);
+	    return $preserved_url . ossn_embed_youtube_shortener_parse_url($url, $guid, $videowidth);
 	} else if (strpos($url, 'video.google.com') != false) {
-		return ossn_embed_google_handler($url, $guid, $videowidth);
+	    return $preserved_url . ossn_embed_google_handler($url, $guid, $videowidth);
 	} else if (strpos($url, 'vimeo.com') != false) {
-		return ossn_embed_vimeo_handler($url, $guid, $videowidth);
+	    return $preserved_url . ossn_embed_vimeo_handler($url, $guid, $videowidth);
 	} else if (strpos($url, 'metacafe.com') != false) {
-		return ossn_embed_metacafe_handler($url, $guid, $videowidth);
+	    return $preserved_url . ossn_embed_metacafe_handler($url, $guid, $videowidth);
 	} else if (strpos($url, 'veoh.com') != false) {
-		return ossn_embed_veoh_handler($url, $guid, $videowidth);
+	    return $preserved_url . ossn_embed_veoh_handler($url, $guid, $videowidth);
 	} else if (strpos($url, 'dailymotion.com') != false) {
-		return ossn_embed_dm_handler($url, $guid, $videowidth);
+	    return $preserved_url . ossn_embed_dm_handler($url, $guid, $videowidth);
 	} else if (strpos($url, 'blip.tv') != false) {
-		return ossn_embed_blip_handler($url, $guid, $videowidth);
+	    return $preserved_url . ossn_embed_blip_handler($url, $guid, $videowidth);
 	} else if (strpos($url, 'teachertube.com') != false) {
-		return ossn_embed_teachertube_handler($url, $guid, $videowidth);
+	    return $preserved_url . ossn_embed_teachertube_handler($url, $guid, $videowidth);
 	} else if (strpos($url, 'hulu.com') != false) {
-		return ossn_embed_hulu_handler($url, $guid, $videowidth);
+	    return $preserved_url . ossn_embed_hulu_handler($url, $guid, $videowidth);
 	} else {
 		return false;
 	}
@@ -84,7 +85,7 @@ function ossn_embed_create_embed_object($url, $guid, $videowidth=0) {
  * @param integer/string $height
  * @return string style code for video div
  */
-function ossn_embed_add_css($guid, $width, $height) {
+function ossn_embed_add_css($guid, $width, $height, $embedtype = 'video:css') {
 	// compatibility hack to work with ReadMore component
 	// first, close still open post-text <div> here, otherwise video will become a part of collapsible area
 	$videocss = "";
@@ -93,7 +94,7 @@ function ossn_embed_add_css($guid, $width, $height) {
 		'width' => $width,
 		'height' => $height
 	);
-	return ossn_call_hook('embed', 'video:css', $vars, $videocss);
+	return ossn_call_hook('embed', $embedtype, $vars, $videocss);
 }
 
 /**
@@ -107,8 +108,10 @@ function ossn_embed_add_css($guid, $width, $height) {
  * @return string <object> code
  */
 function ossn_embed_add_object($type, $url, $guid, $width, $height) {
+    $embeddiv = '';
 	$videodiv = "<span id=\"ossnembed{$guid}\" class=\"ossn_embed_video embed-responsive embed-responsive-16by9\">";
-
+	$linkdiv = "<span id=\"ossnembed{$guid}\" class=\"ossn_embed_link embed-responsive embed-responsive-16by9\">";
+	
 	// could move these into an array and use sprintf
 	switch ($type) {
 		case 'youtube':
@@ -749,4 +752,8 @@ function ossn_embed_hulu_parse_url($url) {
 	//echo $hash;
 
 	return $hash;
+}
+
+function ossn_embed_link($url, $guid, $videowidth) {
+    ;
 }
