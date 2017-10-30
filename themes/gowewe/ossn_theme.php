@@ -8,11 +8,11 @@
  * @license   Open Source Social Network License (OSSN LICENSE)  http://www.opensource-socialnetwork.org/licence
  * @link      https://www.opensource-socialnetwork.org/
  */
-define('__THEMEDIR__', ossn_route()->themes . 'gowwe/');
+define('__THEMEDIR__', ossn_route()->themes . 'gowewe/');
 
-ossn_register_callback('ossn', 'init', 'ossn_gowwe_theme_init');
+ossn_register_callback('ossn', 'init', 'ossn_gowewe_theme_init');
 
-function ossn_gowwe_theme_init(){	
+function ossn_gowewe_theme_init(){	
 	//add bootstrap
 	ossn_new_css('bootstrap.min', 'css/bootstrap/bootstrap.min.css');
 	//ossn_new_js('bootstrap.min', 'js/bootstrap/bootstrap.min.js');
@@ -27,11 +27,11 @@ function ossn_gowwe_theme_init(){
 	ossn_load_css('ossn.default');
 	ossn_load_css('ossn.admin.default', 'admin');
 	
-	ossn_extend_view('ossn/admin/head', 'ossn_gowwe_admin_head');
-	ossn_extend_view('ossn/site/head', 'ossn_gowwe_head');
-    ossn_extend_view('js/opensource.socialnetwork', 'js/gowwe');	
+	ossn_extend_view('ossn/admin/head', 'ossn_gowewe_admin_head');
+	ossn_extend_view('ossn/site/head', 'ossn_gowewe_head');
+    ossn_extend_view('js/opensource.socialnetwork', 'js/gowewe');	
 }
-function ossn_gowwe_head(){
+function ossn_gowewe_head(){
 	$head	 = array();
 	
 	$head[]  = ossn_html_css(array(
@@ -48,7 +48,7 @@ function ossn_gowwe_head(){
 			  ));	
 	return implode('', $head);
 }
-function ossn_gowwe_admin_head(){
+function ossn_gowewe_admin_head(){
 	$head	 = array();	
 	$head[]  = ossn_html_css(array(
 					'href' => '//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'

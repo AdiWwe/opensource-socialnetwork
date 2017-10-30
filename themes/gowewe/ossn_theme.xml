@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <theme xmlns="http://wewhoelse.org/theme/v/3.0">
-    <name>GoWWe</name>
-    <id>gowwe</id>
+    <name>We! Who else?</name>
+    <id>gowewe</id>
     <author>Michael Lindenau</author>
     <author_url>https://wewhoelse.org/</author_url>	
-    <description>An enhanced responsive theme for Ossn.</description>
+    <description>An enhanced responsive theme for Ossn based on goBlue theme.</description>
     <license>GNU General Public License, version 2</license>    
 	<license_url>http://www.opensource-socialnetwork.org/licence</license_url>
     <version>5.01</version>
