@@ -17,7 +17,7 @@ $de = array(
     'photos:ossn' => 'Fotos',
     'admin:view:site' => 'Seiten-Ansicht',
 
-    'home:top:heading' => "Willkommen bei %s!<br>Wenn du ein flexibles Social-Media-Netz suchst, dass kein Schindluder mit deinen Daten treibt: Hier bist Du richtig.",
+    'home:top:heading' => "Willkommen bei %s<br>Wenn du ein flexibles werbefreies Social-Media-Netz suchst, dass kein Schindluder mit deinen Daten treibt: Hier bist Du richtig.",
     'create:account' => 'Mitmachen!',
     'its:free' => 'Es ist umsonst und kostet nix.',
 

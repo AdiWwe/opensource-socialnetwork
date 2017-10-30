@@ -209,7 +209,7 @@ a {
 ********************************/
 
 .topbar {
-    background: #0b769c;
+    background: #99ccff;
     color: #fff;
     z-index: 1;
     position: relative;
@@ -219,7 +219,6 @@ a {
     margin-top: 5px;
 }
 .topbar .site-name a {
-    text-transform: uppercase;
     font-size: 20px;
     padding: 10px;
     color: #fff;
@@ -1739,11 +1738,10 @@ footer .ossn-footer-menu a:last-child::after {
 }
 .home-left-contents .description {
     font-size: 17px;
-    text-transform: uppercase;
     font-weight: bold;
     margin-top: 20px;
     text-align: justify;
-    color: #fff;
+    color: #333366;
 }
 .home-left-contents .buttons {
     text-align: center;
