@@ -82,7 +82,7 @@ p {
     padding: 4px 8px;
 }
 .btn-primary {
-	background-color: #2a87a7;
+	background-color: #80bfff;
 }
 a {
 	color: #0f3b4a;
