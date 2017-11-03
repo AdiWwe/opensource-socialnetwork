@@ -39,25 +39,14 @@ function ossn_embed_init() {
  * @access private
  */
 function ossn_embed_wall_template_item($hook, $type, $return){
-	$patterns = array(	'#(((https?://)?)|(^./))(((www.)?)|(^./))youtube\.com/watch[?]v=([^\[\]()<.,\s\n\t\r]+)#i',
-						'#(((https?://)?)|(^./))(((www.)?)|(^./))youtu\.be/([^\[\]()<.,\s\n\t\r]+)#i',
-						'/(https?:\/\/)(www\.)?(vimeo\.com\/groups)(.*)(\/videos\/)([0-9]*)/',
-						'/(https?:\/\/)(www\.)?(vimeo.com\/)([0-9]*)/',
-						'/(https?:\/\/)(player\.)?(vimeo.com\/video\/)([0-9]*)/',
-						'/(https?:\/\/)(www\.)?(metacafe\.com\/watch\/)([0-9a-zA-Z_-]*)(\/[0-9a-zA-Z_-]*)(\/)/',
-						'/(https?:\/\/www\.dailymotion\.com\/.*\/)([0-9a-z]*)/',
-						);
 	$regex = "/<a[\s]+[^>]*?href[\s]?=[\s\"\']+"."(.*?)[\"\']+.*?>"."([^<]+|.*?)?<\/a>/";
 	
 	$return['text'] = linkify($return['text']);
-	if(preg_match_all($regex, $return['text'], $matches, PREG_SET_ORDER)){
-	   foreach($matches as $match){
-			foreach ($patterns as $pattern){
-				if (preg_match($pattern, $match[2]) > 0){
-				    $return['text'] = str_replace($match[0], ossn_embed_create_embed_object($match[2], uniqid('videos_embed_'), 500), $return['text']);
-				}				
-			}
-		}
+	if (preg_match_all($regex, $return['text'], $matches, PREG_SET_ORDER)){
+        // we process all matches and try to resolve for either ombed or og support
+        foreach($matches as $match){
+            $return['text'] = str_replace($match[0], ossn_embed_create_embed_object($match[2], uniqid('videos_embed_'), 500), $return['text']);
+        }
 	}
 	return $return;
 }
