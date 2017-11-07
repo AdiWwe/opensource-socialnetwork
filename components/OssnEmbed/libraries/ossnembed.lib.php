@@ -119,6 +119,29 @@ function ossn_embed_get_root_domain($url) {
     }
 }
 
+/**
+ * Scans the embed code for sandbox attribute, if not included, adds the sandbox
+ * attribute otherwise strips every parameter from the sandbox attribute (full restriction).
+ * @param String $embed_code as returned by oembed.
+ * @return string the oembed code with strict sandbox attribute.
+ */
+function ossn_embed_sandbox_it($embed_code) {
+    $pattern_frame = '/(.*)(<iframe?[^>])(.*)(><\/iframe>)(.*)/i';
+    preg_match($pattern_frame, $embed_code, $match_frame);
+    if (strpos(strtolower($match_frame[3]), 'sandbox') > 0) {
+        $pattern_sandbox = '/(.*)(sandbox)([=]?["]?[a-zA-Z ].+["]?)(.*)/i';
+        preg_match($pattern_sandbox, $match_frame[3], $match_sandbox);
+        $match_sandbox[0] = '';
+        $match_sandbox[3] = '';
+        $match_frame[3] = implode('', $match_sandbox);
+    } else {
+        $match_frame[3] .= ' sandbox';
+    }
+    $match_frame[0] = '';
+    $embed_code = implode('', $match_frame);
+    return $embed_code;
+}
+
 function ossn_embed_build_code($ossn_meta) {
     $divEmbed = '<span id="ossnembed' . $ossn_meta['guid'] . '" class="ossn_embed_link embed-responsive ' . ($ossn_meta['image'] == false ? '">' : 'embed-responsive-16by9">');
     if ($ossn_meta['embed'] == false) {
