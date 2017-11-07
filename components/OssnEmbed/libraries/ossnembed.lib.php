@@ -189,7 +189,7 @@ function ossn_embed_get_opengraph($ossn_meta) {
         $ossn_meta['type'] = (!empty($meta['twitter:card'])) ? (array_key_exists($meta['twitter:card'], $ossn_meta['map']) ? $ossn_meta['map'][$meta['twitter:card']] : $ossn_meta['map']['default']): $ossn_meta['type'];
         $ossn_meta['width'] = (!empty($meta['twitter:player:width'])) ? $meta['twitter:player:width'] : $ossn_meta['width'];
         $ossn_meta['height'] = (!empty($meta['twitter:player:height'])) ? $meta['twitter:player:height'] : '';
-        if ($ossn_meta['title'] && $ossn_meta['desc'] && $ossn_meta['image'] && $ossn_meta['type'] && $ossn_meta['width']) {
+        if ($ossn_meta['title'] !== false  && $ossn_meta['desc'] !== false && $ossn_meta['image'] !== false) {
             return $ossn_meta;
         }
     }
